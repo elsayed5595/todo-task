@@ -11,7 +11,7 @@ todoButton.addEventListener("click", addTask)
 todoList.addEventListener('click',chekorDlete)
 
 function addTask(e){
-    e.preventDefault()
+    e.preventDefault();
     
   //creat li 
  const todoLi=document.createElement('li')
@@ -23,6 +23,10 @@ function addTask(e){
 
   //creat input value to div 
   myDiv.innerHTML=TodoInput.value
+ 
+  localStorage.setItem("todo", TodoInput.value);
+
+
 
   //creat ptn complete 
   const completeBtn=document.createElement('button');
@@ -38,9 +42,9 @@ function addTask(e){
   todoLi.append(myDiv,completeBtn,trushBtn);
   
    //creat ul todo list
-   todoList.appendChild(todoLi)
-  
-   //creat todo-container 
+   todoList.appendChild(todoLi);
+ 
+      //creat todo-container 
    const todoContainer=document.createElement('div');
         todoContainer.classList.add('todo-container')
    todoContainer.appendChild(todoList);
@@ -65,7 +69,7 @@ function chekorDlete(e){
         todo.remove();
      })
 };
-};
+   };
 
 
 
